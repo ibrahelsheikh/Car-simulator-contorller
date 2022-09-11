@@ -1,0 +1,17 @@
+# reading analog signal
+
+from pyautogui import keyDown, keyUp
+from pyfirmata import Arduino, util
+import time
+
+board = Arduino("com3")
+pin = board.get_pin('a:1:i')
+
+it = util.Iterator(board)
+it.start()
+
+while True:
+    # reading analog signal
+    if pin.read() is not None:
+        print(pin.read())
+        time.sleep(0.5)
