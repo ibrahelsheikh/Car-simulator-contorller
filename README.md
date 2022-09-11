@@ -8,3 +8,13 @@ https://roboticsbackend.com/arduino-standard-firmata-tutorial/?fbclid=IwAR3S04_9
 ## secondly : add pyfirmata to your python 
 by using pip 
 python -m pip install pyfirmata 
+
+
+
+
+
+
+
+
+
+
