@@ -10,6 +10,8 @@ by using pip
 python -m pip install pyfirmata 
 
 
+## diagram here 
+
 
 
 
