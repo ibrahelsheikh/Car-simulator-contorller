@@ -1,0 +1,41 @@
+#!/usr/bin/env python3
+
+
+import pyfirmata
+import time
+from pyautogui import press, keyDown, keyUp
+
+# set up pins
+fuel_pin = 0
+break_pin = 1
+car_wheel = pyfirmata.board.get_pin('a:1:i')
+
+if __name__ == '__main__':
+    # Initiate communication with Arduino
+    board = pyfirmata.Arduino('com3')
+    print("Communication Successfully started")
+
+    # Create bunch of useful variables
+
+    fuel_button = board.digital[fuel_pin].read()
+    break_button = board.digital[fuel_pin].read()
+    car_wheel = board.analog[car_wheel].read()
+
+    # Main loop
+    while True:
+        # Check if the fuel button is pressed
+        if fuel_button == 1:
+            press('f')
+            time.sleep(0.5)
+        # Check if the break button is pressed
+        if break_button == 1:
+            press('space')
+            time.sleep(0.5)
+
+        # trun the car wheel
+
+        keyDown('a')
+        time.sleep(car_wheel)  # TODO: add factor to make it more realistic
+        keyUp('a')
+
+        time.sleep(0.1)
